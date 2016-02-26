@@ -9,8 +9,12 @@
 
 #include <cstdlib>
 #include <vector>
+#include <queue>
 
 #include <opencv2/opencv.hpp>
+
+#include <vo/odometer.h>
+#include <vo/vo_state.h>
 
 namespace vo {
 
@@ -18,7 +22,7 @@ namespace vo {
  * \brief The class MonoOdometer processes input images generating
  * a displacement information.
  */
-class MonoOdometer {
+class MonoOdometer : Odometer {
 
 public:
 	MonoOdometer();
@@ -31,24 +35,10 @@ public:
 	 */
 	bool process(const cv::InputArray image);
 
-	/**
-	 * \brief Method for retrieving the latest input image.
-	 * \return Latest image matrix.
-	 */
-	cv::Mat getCurrentImage();
-
-	/**
-	 * \brief Method for retrieving the second latest input image.
-	 * \return Second latest image.
-	 */
-	cv::Mat getPreviousImage();
-
-protected:
-
 private:
 
-	cv::Mat curr_image; //!< \brief Latest received image
-	cv::Mat prev_image; //!< \brief Second latest received image
+	VoState* prevState;
+	VoState* currState;
 
 	/**
 	 * \brief Method for detecting image features.
