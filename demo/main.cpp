@@ -11,7 +11,7 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include <vo/mono_odometer.h>
+#include <vo/odometer.h>
 
 cv::Mat openImage(char *format, int i) {
 	char filename[256];

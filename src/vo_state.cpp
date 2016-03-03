@@ -6,6 +6,8 @@
  */
 #include <vo/vo_state.h>
 
+#include <iostream>
+
 namespace vo {
 
 VoState::VoState() {
@@ -22,7 +24,7 @@ cv::Mat VoState::getImage(){
 }
 
 void VoState::setImage(cv::Mat image){
-	this->image = image;
+	this->image = cv::Mat(image);
 }
 
 std::vector<cv::KeyPoint> VoState::getFeatureKeyPoints(){
@@ -38,6 +40,10 @@ std::vector<cv::Point2f> VoState::getFeaturePoints(){
 	cv::KeyPoint::convert(this->features,points2f);
 
 	return points2f;
+}
+
+void VoState::setFeaturePoints(std::vector<cv::Point2f> points2f){
+	cv::KeyPoint::convert(points2f,this->features);
 }
 
 } /* namespace vo */

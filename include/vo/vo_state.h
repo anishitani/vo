@@ -24,7 +24,9 @@ public:
 
 	std::vector<cv::KeyPoint> getFeatureKeyPoints();
 	void setFeatureKeyPoints(std::vector<cv::KeyPoint> features);
+
 	std::vector<cv::Point2f> getFeaturePoints();
+	void setFeaturePoints(std::vector<cv::Point2f> featurePoints);
 
 private:
 
