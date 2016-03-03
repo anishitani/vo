@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
 	cv::Mat_<float> K(3, 3);
 	K << 721.5377, 0.0, 609.5593, 0.0, 721.5377, 172.854, 0.0, 0.0, 1.0;
 
-	vo::MonoOdometer odom;
+	vo::Odometer odom;
 
 	ICurr = openImage(format0, 0);
 	for (int i = 1; !ICurr.empty() ; i++) {

@@ -4,8 +4,8 @@
  * \author anishitani <atoshio25@gmail.com>
  */
 
-#ifndef _MONO_ODOMETER_H_
-#define _MONO_ODOMETER_H_
+#ifndef _ODOMETER_H_
+#define _ODOMETER_H_
 
 #include <cstdlib>
 #include <vector>
@@ -22,11 +22,11 @@ namespace vo {
  * \brief The class MonoOdometer processes input images generating
  * a displacement information.
  */
-class MonoOdometer : Odometer {
+class Odometer {
 
 public:
-	MonoOdometer();
-	~MonoOdometer();
+	Odometer();
+	~Odometer();
 
 	/**
 	 * \brief This is the main method of Odometer class.
@@ -37,8 +37,8 @@ public:
 
 private:
 
-	VoState* prevState;
-	VoState* currState;
+	VoState* prevState = NULL;
+	VoState* currState = NULL;
 
 	/**
 	 * \brief Method for detecting image features.
@@ -50,9 +50,8 @@ private:
 	 * image to current image.
 	 */
 	void featureTracking();
-
 };
 
 }
 
-#endif /* _MONO_ODOMETER_H_ */
+#endif /* _ODOMETER_H_ */
